@@ -25,6 +25,10 @@
 									"\r",
 									"pm.test(\"ERRO: Este email já está sendo usado\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validar mensagem de sucesso\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Cadastro realizado com sucesso\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -110,12 +114,16 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"pm.test(\"Alterado com sucesso\", function () {\r",
+									"pm.test(\"Registro alterado com sucesso\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"ERRO: Id não encontrado\", function () {\r",
 									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validar mensagem de sucesso\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Registro alterado com sucesso\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -162,6 +170,10 @@
 								"exec": [
 									"pm.test(\"Status code 200\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validar mensagem de sucesso\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Registro excluído com sucesso\");\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -220,7 +232,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://serverest.dev/usuarios?nome=João",
+							"raw": "https://serverest.dev/usuarios?_id=y",
 							"protocol": "https",
 							"host": [
 								"serverest",
@@ -232,16 +244,16 @@
 							"query": [
 								{
 									"key": "_id",
-									"value": "a",
-									"disabled": true
+									"value": "y"
 								},
 								{
 									"key": "nome",
-									"value": "João"
+									"value": "João",
+									"disabled": true
 								},
 								{
 									"key": "email",
-									"value": "@",
+									"value": "joaoqa@qa.com.br",
 									"disabled": true
 								},
 								{
